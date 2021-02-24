@@ -12,7 +12,8 @@
 std::vector<std::string> split(std::string, char);
 std::string input(std::string);
 
-void sort(int*, size_t, bool);
-void sort(char*, size_t, bool);
-void sort(double*, size_t, bool);
+template <typename T>
+void sort(T*, size_t, bool);
+
+std::vector<int> range(int, int, int);
 void print(int*, size_t);

@@ -22,46 +22,20 @@ string input(string message="") {
 	return res;
 }
 
-void sort(int* arr, size_t n, bool reverse = false) {
+template <typename T>
+
+void sort(T* arr, size_t n, bool reverse=false) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n - 1 - i; j++) {
 			if (arr[j] > arr[j + 1]) swap(arr[j], arr[j + 1]);
 		}
 	}
 	if (reverse) {
-		int* n_arr = new int[n];
+		T* n_arr = new T[n];
 		for (int i = 0; i < n; i++) {
 			n_arr[i] = arr[n - i - 1];
 		}
 		arr = n_arr;
-	}
-}
-
-void sort(double* arr, size_t n, bool reverse = false) {
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n - 1 - i; j++) {
-			if (arr[j] > arr[j + 1]) swap(arr[j], arr[j + 1]);
-		}
-	}
-	if (reverse) {
-		double* n_arr = new double[n];
-		for (int i = 0; i < n; i++) {
-			n_arr[i] = arr[n - i - 1];
-		}
-		arr = n_arr;
-	}
-}
-
-void sort(char* arr, size_t n, bool reverse) {
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n - 1 - i; j++) {
-			if (arr[j] > arr[j + 1]) swap(arr[j], arr[j + 1]);
-		}
-	}
-	if (reverse) {
-		for (int i = 0; i < n/2; i++) {
-			swap(arr[i], arr[n-1-i]);
-		}
 	}
 }
 
@@ -71,4 +45,12 @@ void print(int*arr, size_t n) {
 		if (i != n - 1) cout << ", ";
 	}
 	cout << endl;
+}
+
+vector<int> range(int start, int finish, int step=1){
+	vector<int> res;
+	for (int i = start; i < finish; i+=step){
+		res.push_back(i);
+	}
+	return res;
 }
