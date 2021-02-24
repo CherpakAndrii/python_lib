@@ -1,3 +1,5 @@
+//often used libs, some important funcs from Python (input, split, arr sort, arr print)
+//all python functions are modified and adapted to c++ language
 #pragma once
 #include <string>
 #include <vector>
@@ -69,3 +71,7 @@ void print(int* arr, size_t n) {
 	std::cout << std::endl;
 }
 
+int randint(int start, int finish){
+	//srand(time(NULL));
+	return rand() %(finish-start) + start;
+}
