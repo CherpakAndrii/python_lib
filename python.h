@@ -76,13 +76,15 @@ int randint(int start, int finish){
 	return rand() %(finish-start) + start;
 }
 
-std::vector<std::string> readlines(std::string name){
+std::vector<std::string> readlines(std::string name, int lim = -1){
 	std::ifstream f(name);
 	std::vector<std::string> lines;
-	while (!f.eof()) {
+	int count = 0;
+	while (!f.eof() && count!=lim) {
 		std::string line;
 		getline(f, line);
 		lines.push_back(line);
+		count++;
 	}
 	f.close();
 	return lines;
