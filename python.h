@@ -75,3 +75,15 @@ int randint(int start, int finish){
 	//srand(time(NULL));
 	return rand() %(finish-start) + start;
 }
+
+std::vector<std::string> readlines(std::string name){
+	std::ifstream f(name);
+	std::vector<std::string> lines;
+	while (!f.eof()) {
+		std::string line;
+		getline(f, line);
+		lines.push_back(line);
+	}
+	f.close();
+	return lines;
+}
