@@ -89,3 +89,35 @@ std::vector<std::string> readlines(std::string name, int lim = -1){
 	f.close();
 	return lines;
 }
+
+void rstrip(std::string &s, char r = ' ') {
+	auto p = s.end()-1;
+	while (*p == r) {
+		s.erase(p);
+		p -= 1;
+	}
+}
+
+void lstrip(std::string &s, char r = ' ') {
+	auto p = s.begin();
+	while (*p == r) {
+		s.erase(p);
+		p -= 1;
+	}
+}
+
+void strip(std::string &s, char r = ' '){
+	rstrip(s, r);
+	lstrip(s, r);
+}
+
+template <typename T1, typename T2>
+std::vector<std::pair<T1, T2>> zip(std::vector<T1> a, std::vector<T2> b){
+	std::vector<std::pair<T1, T2>> ab;
+	int l = int(a.size()<b.size()?a.size():b.size());
+	for(int i = 0; i < l; i++){
+		std::pair<T1, T2> p = {a[i], b[i]};
+		ab.push_back(p);
+	}
+	return ab;
+}
