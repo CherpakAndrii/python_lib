@@ -121,3 +121,8 @@ std::vector<std::pair<T1, T2>> zip(std::vector<T1> a, std::vector<T2> b){
 	}
 	return ab;
 }
+
+void wait(int sec){
+	time_t t0 = clock();
+	while (clock()/CLOCK_PER_SECOND - t0/CLOCK_PER_SECOND < sec);
+}
